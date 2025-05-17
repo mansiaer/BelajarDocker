@@ -1,5 +1,10 @@
 image:
-  file: .gitpod.Dockerfile 
+  file: .gitpod.Dockerfile
 
 tasks:
-  - init: docker --version
+  - name: Start App
+    command: docker-compose up -d
+
+ports:
+  - port: 8080
+    onOpen: open-preview
