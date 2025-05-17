@@ -14,6 +14,7 @@ RUN apt-get update && \
     openssh-server \
     zsh \
     build-essential \
+    binutils \
     libssl-dev \
     libelf-dev \
     ncurses-dev \
