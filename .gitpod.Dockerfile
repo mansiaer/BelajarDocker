@@ -13,11 +13,26 @@ RUN apt-get update && \
     locales \
     openssh-server \
     zsh \
+    build-essential \
+    libssl-dev \
+    libelf-dev \
+    ncurses-dev \
+    flex \
+    bison \
+    libgtk-3-dev \
+    qtbase5-dev \
+    bc \
+    rsync \
+    cpio \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 # Set up locale (required for Gitpod)
 RUN locale-gen en_US.UTF-8
+
+# Create Gitpod user (UID 33333 is mandatory for Gitpod)
+RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod && \
+    echo "gitpod ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/gitpod
 
 # Set up workspace directory (Gitpod expects this)
 USER gitpod
