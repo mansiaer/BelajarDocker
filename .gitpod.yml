@@ -1,7 +1,5 @@
 image:
-  file: .gitpod.Dockerfile
+  file: .gitpod.Dockerfile 
 
-# Optional: Add startup tasks
 tasks:
-  - name: Verify Ubuntu Version
-    command: lsb_release -a
+  - init: docker --version
